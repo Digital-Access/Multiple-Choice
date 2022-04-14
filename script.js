@@ -1,5 +1,11 @@
-let titleScreen = 'Multiple Choice Quiz';
-let allQuestions = [{
+const titleScreen = {
+    title: "Multiple Choice Quiz",
+    image_on: false,
+    image: "https://a.storyblok.com/f/112136/205x150/12867bb205/sporting-hero.png",
+    end_image_on: false,
+    end_image: "https://a.storyblok.com/f/112136/205x150/12867bb205/sporting-hero.png"
+}
+const allQuestions = [{
     question_string: "Which colour isn't the sky",
     correct_text: "✔ Correct! The sky doesn't contain shades of green.",
     incorrect_text: "❌Incorrect! The colour the sky doesn't contain is green.",
@@ -39,7 +45,8 @@ let allQuestions = [{
         all_choices: ["7", "11", "22", "12"],
         correct: "12",
     }
-}];
+}
+];
 
 
 const question = document.getElementById('question');
@@ -73,8 +80,16 @@ const header = document.getElementById('header');
 const start = document.getElementById('start');
 const endComment = document.getElementById('endComment');
 const navigation = document.getElementById('navigation');
+const image = document.getElementById('image');
+const endImage = document.getElementById('endImage');
 
-title.textContent = titleScreen;
+title.textContent = titleScreen.title;
+
+if (titleScreen.image_on) {
+    image.src = titleScreen.image;
+}else{
+    image.style.display = 'none';
+}
 
 let i = 0;
 let count = allQuestions.length;
@@ -118,6 +133,11 @@ nextBtn.onclick = () => {
             element.style.pointerEvents = 'none';
             element.style.display = 'none';
         })
+        if (titleScreen.end_image_on) {
+            endImage.src = titleScreen.end_image;
+        }else{
+            endImage.style.display = 'none';
+        }
         tryAgain.style.display = 'flex';
         question.textContent = 'Your Score';
         endScore.style.display = 'flex';
