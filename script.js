@@ -1,7 +1,7 @@
 const titleScreen = {
-    title: "Multiple Choice Quiz",
+    title: "Quick knowledge check!",
     image_on: false,
-    image: "https://a.storyblok.com/f/112136/205x150/12867bb205/sporting-hero.png",
+    image: "https://a.storyblok.com/f/112136/576x544/34a0f96cf5/thinking-8.png",
     end_image_on: false,
     end_image: "https://a.storyblok.com/f/112136/205x150/12867bb205/sporting-hero.png"
 }
@@ -45,9 +45,7 @@ const allQuestions = [{
         all_choices: ["7", "11", "22", "12"],
         correct: "12",
     }
-}
-];
-
+}];
 
 const question = document.getElementById('question');
 
@@ -87,7 +85,7 @@ title.textContent = titleScreen.title;
 
 if (titleScreen.image_on) {
     image.src = titleScreen.image;
-}else{
+} else {
     image.style.display = 'none';
 }
 
@@ -135,7 +133,7 @@ nextBtn.onclick = () => {
         })
         if (titleScreen.end_image_on) {
             endImage.src = titleScreen.end_image;
-        }else{
+        } else {
             endImage.style.display = 'none';
         }
         tryAgain.style.display = 'flex';
